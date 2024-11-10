@@ -1,6 +1,6 @@
 {
   "name": "reactjs-popover",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ReactJS Popover using Popover API",
   "main": "dist/index.js",
   "files": [
