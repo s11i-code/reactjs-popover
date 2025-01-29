@@ -18,8 +18,9 @@ function App() {
   return (
     <>
     <button popovertarget={POPOVER_ID}>
-         Toggle popover
-      </button>
+      Toggle popover
+    </button>
+    
     <Popover remountChildrenOnShow ={true} position="top" id={POPOVER_ID}>
 
       {({ showPopover, hidePopover, togglePopover, state }) => (
