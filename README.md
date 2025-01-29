@@ -8,6 +8,12 @@ A lightweight, accessible popover component for React applications which is buil
 npm install reactjs-popover
 ```
 
+## Installation
+
+```bash
+npm install reactjs-popover
+```
+
 ## Why use the Popover API in React
 
 Using the Popover API in React offers several advantages:
@@ -16,10 +22,6 @@ Using the Popover API in React offers several advantages:
 - **CSS Power**: Leverage the full capabilities of CSS, including backdrops and entry/exit animations.
 - **Accessibility**: The Popover API enhances accessibility by managing focus trapping and providing ESC key dismissal when the type is set to `auto`.
 
-These benefits make the Popover API a powerful tool for creating interactive and accessible popovers in React applications.
-- Popovers are promoted to their own layer – no more z-index tricks needed and rendering is performant. 
-- You can use the full power of CSS, including backdrops and entry and exit animations. 
-- Good accessibility thanks to the Popover API (e.g. trapping focus to popover when the popover is open, ESC dismiss when type is `auto` etc) 
 
 ## Usage
 ```
