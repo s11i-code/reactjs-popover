@@ -1,6 +1,6 @@
 {
   "name": "reactjs-popover",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight, accessible popover component for React applications.",
   "main": "dist/index.js",
   "type": "module",
