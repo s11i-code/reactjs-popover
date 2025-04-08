@@ -32,7 +32,7 @@ const POPOVER_ID = "my-popover";
 function Example() {
     return (
         <>
-            <button popovertarget={POPOVER_ID}>Toggle popover</button>
+            <button popoverTarget={POPOVER_ID}>Toggle popover</button>
             
             <Popover remountChildrenOnShow ={true} position="top" id={POPOVER_ID}>
                 {({ showPopover, hidePopover, togglePopover, state }) => (
