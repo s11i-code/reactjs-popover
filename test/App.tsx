@@ -2,14 +2,6 @@ import Popover from '../src/index'
 //import './App.css'
 
 
-// For now, patch the types to include the popover attribute:
-import 'react';
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    popovertarget?: string
-
-  }
-}
 
 function App() {
 
@@ -17,7 +9,7 @@ function App() {
 
   return (
     <>
-    <button popovertarget={POPOVER_ID}>
+    <button popoverTarget={POPOVER_ID}>
       Toggle popover
     </button>
     
