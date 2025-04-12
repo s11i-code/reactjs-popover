@@ -24,6 +24,18 @@ export default function Popover<T extends boolean>({
   const [, setRenderToggle] = useState<EventState>("closed");
   const eventState = useRef<EventState>("closed");
 
+
+  // Add the anchor name to make to trigger button to anchor to the popover to it:
+  useEffect(() => {
+    const element: HTMLElement | null = document.querySelector(`[popoverTarget="${id}"]`);
+    element?.style.setProperty('anchor-name', `--${id}`);
+    
+    return () => {
+      element?.style.setProperty('anchor-name', '');
+      
+    }
+  }, [id])
+
   const hidePopover = useCallback(
     function hidePopover() {
       el?.current?.hidePopover();
@@ -124,6 +136,7 @@ function getStyle(position: Position | undefined, id: string): CSSProperties {
   const inverseCSSPropertyVertical = position?.includes("bottom")
     ? "top"
     : "bottom";
+  
   if (position?.includes("bottom")) {
     style = {
       ...style,
