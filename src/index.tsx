@@ -2,45 +2,9 @@
 
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useOnContainerScroll } from "./hooks/useOnContainerScroll";
+import {  PopoverProps, Position, EventState, PopoverState } from './types';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const EVENT_STATES = ["open", "closed"] as const;
-type EventState = (typeof EVENT_STATES)[number];
-type PopoverState<T extends boolean> = T extends true
-  ? EventState
-  : // when remountChildrenOnShow is false, we don't know the state of the popover
-    // when it renders so we default to "indetermined"
-    "indetermined";
 const DEFAULT_RENDER_ON_SHOW = false;
-
-type ChildProps<T extends boolean> = {
-  hidePopover: () => void;
-  togglePopover: () => void;
-  showPopover: () => void;
-  state: PopoverState<T>;
-};
-
-// this is relative to the button that triggers the popover:
-// we can add more positions as needed:
-type Position = "bottom" | "top" | "bottom left" | "bottom right";
-
-export interface Props<T extends boolean = typeof DEFAULT_RENDER_ON_SHOW> {
-  children: (props: ChildProps<T>) => React.ReactNode;
-  id: string;
-  className?: string;
-  type?: "auto" | "manual";
-  showHideButton?: boolean;
-  position?: Position;
-  closeOnScroll?: boolean;
-  onHide?: () => void;
-  onShow?: () => void;
-  onToggle?: () => void;
-  // this component uses the native JS popover which means it does NOT re-render the children when toggled between open/closed
-  // This is useful for performance reasons when you don't want to re-render children on every toggle.
-  // However, you can opt out of this behaviour by setting this to true and re-mounting the children when popover is toggled.
-  // This is useful if the children need to reset when popover is toggled (e.g. form fields and data fetches)
-  remountChildrenOnShow?: T;
-}
 
 export default function Popover<T extends boolean>({
   children,
@@ -54,7 +18,7 @@ export default function Popover<T extends boolean>({
   onHide,
   onShow,
   onToggle,
-}: Props<T>) {
+}: PopoverProps<T>) {
   const el = useRef<HTMLDivElement>(null);
   // this only exists to trigger a re-render when the popover is toggled::
   const [, setRenderToggle] = useState<EventState>("closed");
