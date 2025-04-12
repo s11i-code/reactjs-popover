@@ -30,6 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm clean-install
 
+      - name: Check linting and formatting
+        run: npm run check:ci
+
+
       - name: Build                  # <-- Add this step
         run: npm run build
 
